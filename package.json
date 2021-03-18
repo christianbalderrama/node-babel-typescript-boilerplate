@@ -1,0 +1,41 @@
+{
+  "name": "node-babel-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "A simple boilerplate for node by leveraging babel, nodemon and morgan",
+  "main": "index.js",
+  "scripts": {
+    "development": "nodemon --watch ./src --exec npm run pipeline-development",
+    "production": "npm run pipeline-production",
+    "clean": "rm -Rf dist && mkdir dist",
+    "start": "node ./dist/index.js",
+    "pipeline-development": "npm run clean && npx babel ./src/ -d ./dist --source-maps && npm start",
+    "pipeline-production": "npm run clean && npx babel ./src -d ./dist && node ./src/minify.js && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christianbalderrama/node-babel-typescript-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "Christian Balderrama <0christianbalderrama@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christianbalderrama/node-babel-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/christianbalderrama/node-babel-typescript-boilerplate#readme",
+  "dependencies": {
+    "core-js": "^3.9.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "regenerator-runtime": "^0.13.7",
+    "terser": "^5.6.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-transform-regenerator": "^7.12.13",
+    "@babel/preset-env": "^7.13.10",
+    "eslint": "^7.22.0",
+    "nodemon": "^2.0.7"
+  }
+}

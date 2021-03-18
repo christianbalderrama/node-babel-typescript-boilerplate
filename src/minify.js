@@ -1,0 +1,1 @@
+// TODO: It should go throughout the transpiled code in the /dist folder and minifies everything
